@@ -27,9 +27,9 @@ class Emp_Contract(Employee):
 
     def __str__(self):
         if self.commission:
-            return (f'{self.name} works on a contract of {self.hours} at {self.rate}/hour{self.commission.get_string()} Their total pay is {self.pay}')
+            return (f'{self.name} works on a contract of {self.hours} hours at {self.rate}/hour{self.commission.get_string()}Their total pay is {self.get_pay()}.')
         else:
-            return (f'{self.name} works on a contract of {self.hours} at {self.rate}/hour. Their total pay is {self.pay}')
+            return (f'{self.name} works on a contract of {self.hours} hours at {self.rate}/hour.  Their total pay is {self.get_pay()}.')
 
 class Emp_Salary(Employee):
     def __init__(self, name, salary, commission = None):
@@ -46,9 +46,9 @@ class Emp_Salary(Employee):
 
     def __str__(self):
         if self.commission:
-            return (f'{self.name} works on a monthly salary of {self.salary}{self.commission.get_string()} Their total pay is {self.pay}')
+            return (f'{self.name} works on a monthly salary of {self.salary}{self.commission.get_string()}Their total pay is {self.get_pay()}.')
         else:
-            return (f'{self.name} works on a monthly salary of {self.salary}. Their total pay is {self.pay}')
+            return (f'{self.name} works on a monthly salary of {self.salary}. Their total pay is {self.get_pay()}.')
 
 
 class Commission:
@@ -68,10 +68,10 @@ class Commission:
     def get_string(self):
         self.out = ""
         if self.bonus:
-            self.out = (f" and receives a bonus commission of {str(self.bonus)}.")
+            self.out = (f" and receives a bonus commission of {str(self.bonus)}. ")
 
         if self.value and self.numb_contract:
-            self.out = (f" and receives a commission for {str(self.numb_contract)} contract(s) at {str(self.value)}/contract.")
+            self.out = (f" and receives a commission for {str(self.numb_contract)} contract(s) at {str(self.value)}/contract. ")
         return self.out
 
 
